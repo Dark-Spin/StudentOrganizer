@@ -10,7 +10,7 @@ public class Student
 	private String lastName; 
 	private double score; 
 	private int group; 
-	static ArrayList<Student>listOfStudents = new ArrayList<Student>(); 
+	static ArrayList<Student>gradebook = new ArrayList<Student>(); 
 
 	public Student (String f, String l, double s, int g)
 		{
@@ -75,13 +75,19 @@ public class Student
 				String lastName = file.next();
 				double score = file.nextDouble();
 				//		add the students into the ArrayList
-				listOfStudents.add(new Student(firstName, lastName, score, 0)); 
+				gradebook.add(new Student(firstName, lastName, score, 0));
+				niceGroup();
+					
+			
 				 }	
 			}
-
-	@Override
-	public String toString()
+	public static void niceGroup()
 		{
-		return "Name: " + firstName + " " + lastName + " " + "\nGroup: " + group + "\n" ; 
+		for(int i=0; i<numberOfLinesOfData; i++)
+			{
+			System.out.println(Student.gradebook.get(i).getFirstName()+" "+Student.gradebook.get(i).getLastName()+Student.gradebook.get(i).getGroup());
+			}
 		}
+
+	
 	}

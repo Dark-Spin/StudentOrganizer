@@ -17,8 +17,8 @@ public class Main
 		Scanner userInput = new Scanner(System.in); 
 		numberOfGroups = userInput.nextInt()+1; 
 		organizeGroupZero(); 
-		Collections.sort(Student.listOfStudents, new GroupSorter());
-		System.out.println(Student.listOfStudents);
+		Collections.sort(Student.gradebook, new GroupSorter());
+		System.out.println(Student.gradebook);
 		}
 //	ask the user how many groups wanted 
 //	create groups ArrayList
@@ -30,18 +30,24 @@ public class Main
 				{
 				for(int i=1; i<numberOfGroups; i++)
 					{
-				Student.listOfStudents.get(counter).setGroup(i);
+				Student.gradebook.get(counter).setGroup(i);
 				counter++;
 					}
 				}
-			while(counter<Student.listOfStudents.size()); 
+			while(counter<Student.gradebook.size()); 
 			}
+	 
 			
 	 
 public static  void organizeGroupZero()
 		{
-		Collections.sort(Student.listOfStudents, new ScoreSorter());
+		
+		Collections.sort(Student.gradebook, new ScoreSorter());
+		Collections.sort(Student.gradebook, new NameSorter());
 		groupSorter(); 
 		}
-}
+
+
+
+
  
